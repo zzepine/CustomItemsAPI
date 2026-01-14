@@ -31,6 +31,7 @@ internal sealed class Main : Plugin<Config>
     private readonly JailbirdHandler jailbirdHandler = new();
     private readonly RevolverHandler revolverHandler = new();
     private readonly Scp127Handler scp127Handler = new();
+    private readonly CoinHandler coinHandler = new();
 
     public override void Enable()
     {
@@ -46,6 +47,7 @@ internal sealed class Main : Plugin<Config>
         CustomHandlersManager.RegisterEventsHandler(jailbirdHandler);
         CustomHandlersManager.RegisterEventsHandler(revolverHandler);
         CustomHandlersManager.RegisterEventsHandler(scp127Handler);
+        CustomHandlersManager.RegisterEventsHandler(coinHandler);
         InventoryExtensions.OnItemRemoved += Subscribed.OnItemRemoved;
         ThrownProjectile.OnProjectileSpawned += Subscribed.ProjectileSpawned;
         CycleController.OnPhaseChanged += Subscribed.PhaseChanged;
@@ -66,6 +68,7 @@ internal sealed class Main : Plugin<Config>
         CustomHandlersManager.UnregisterEventsHandler(jailbirdHandler);
         CustomHandlersManager.UnregisterEventsHandler(revolverHandler);
         CustomHandlersManager.UnregisterEventsHandler(scp127Handler);
+        CustomHandlersManager.UnregisterEventsHandler(coinHandler);
         InventoryExtensions.OnItemRemoved -= Subscribed.OnItemRemoved;
         ThrownProjectile.OnProjectileSpawned -= Subscribed.ProjectileSpawned;
         CycleController.OnPhaseChanged -= Subscribed.PhaseChanged;
