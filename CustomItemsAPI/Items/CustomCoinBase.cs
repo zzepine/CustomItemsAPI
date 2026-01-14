@@ -35,6 +35,6 @@ public abstract class CustomCoinBase : CustomItemBase
     /// <param name="isTails">Resulted in tails.</param>
     public virtual void OnFlipped(Player player, CoinItem coinItem, bool isTails)
     {
-        CL.Debug($"OnFlipping {player.PlayerId} {coinItem.Serial} {isTails}", Main.Instance.Config.Debug);
+        CL.Debug($"OnFlipped {player.PlayerId} {coinItem.Serial} {isTails}", Main.Instance.Config.Debug);
     }
 }
